@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite" thread-count="3">
+	<listeners>
+		<listener class-name="com.obsqura.listeners.TestNGListener" />
+		<listener class-name="com.obsqura.listeners.RetryListener" />
+	</listeners>
+	<test thread-count="3" name="ChromeTest">
+		<parameter name="browser" value="Chrome"></parameter>
+		<classes>
+			<class name="com.obsqura.scripts.LoginPageTest" />
+			<class name="com.obsqura.scripts.ProfilePageTest" />
+			<class name="com.obsqura.scripts.UserManageTest" />
+			<class name="com.obsqura.scripts.RolesPageTest" />
+			<class name="com.obsqura.scripts.HomePageTest" />
+			<class name="com.obsqura.scripts.PrinterPageTest" />
+			<class name="com.obsqura.scripts.TaxPageTest" />
+			<class name="com.obsqura.scripts.CommisionPageTest" />
+			<class name="com.obsqura.scripts.CustomerPageTest" />
+			<class name="com.obsqura.scripts.VariationsPageTest" />
+			<class name="com.obsqura.scripts.CustomerGroupTest" />
+			<class name="com.obsqura.scripts.ImportPageTest" />
+			<class name="com.obsqura.scripts.SellingPriceTest" />
+			<class name="com.obsqura.scripts.BarcodePageTest" />
+		</classes>
+	</test> <!-- Test -->
+
+	<!-- Test -->
+</suite> <!-- Suite -->
