@@ -27,9 +27,9 @@ public class LoginPage {
 		PageFactory.initElements(driver, this);
 	}
 
-	public HomePage login(String user, String pass) {
-		GenericUtility.sendValues(username, user);
-		GenericUtility.sendValues(password, pass);
+	public HomePage login(String usern, String passs) {
+		GenericUtility.sendValues(username, usern);
+		GenericUtility.sendValues(password, passs);
 		WaitUtility.fluentWait(10000, 2000, button, driver);
 		GenericUtility.clickOnElement(button);
 		return new HomePage(driver);
