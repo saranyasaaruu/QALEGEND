@@ -39,7 +39,7 @@
 	</test> <!-- Test -->
 
 	<test thread-count="3" name="FirefoxTest" parallel="classes">
-		<parameter name="browser" value="Chrome"></parameter>
+		<parameter name="browser" value="Firefox"></parameter>
 		<classes>
 			<class name="com.obsqura.scripts.LoginPageTest" />
 			<class name="com.obsqura.scripts.ProfilePageTest" />

@@ -24,9 +24,7 @@ public class UserManageTest extends TestHelper {
 		ump.addTextClick();
 		ump.addUser(email);
 		WaitUtility.sleeps(3000);
-		boolean val = ump.isUserFound(email);
-		WaitUtility.sleeps(3000);
-		// Assert.assertTrue(val);
+		Assert.assertEquals(true, ump.isUserFound(email));
 		System.out.println("User added, searched and Test Passed !!!");
 
 	}

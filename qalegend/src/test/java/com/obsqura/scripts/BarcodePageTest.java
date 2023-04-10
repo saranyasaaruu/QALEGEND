@@ -19,7 +19,7 @@ public class BarcodePageTest extends TestHelper {
 
 	String barcode = "Barcode" + RandomUtility.randomNumberGeneration();
 
-	// @Test(priority = 1)
+	// @Test(priority = 1, groups = { "sanity" })
 	public void verifyBarcodeCanAdd() throws InterruptedException {
 		LoginPage loginPage = new LoginPage(webDriver);
 		loginPage.login("admin", "123456");
@@ -34,7 +34,7 @@ public class BarcodePageTest extends TestHelper {
 		System.out.println("Barcode Added and Test Passed !!!");
 	}
 
-	// @Test(priority = 2)
+	// @Test(priority = 2, groups = { "sanity" })
 	public void verifyBarcodeCanSetToDefault() throws InterruptedException {
 		LoginPage loginPage = new LoginPage(webDriver);
 		loginPage.login("admin", "123456");
@@ -48,7 +48,7 @@ public class BarcodePageTest extends TestHelper {
 		System.out.println("Barcode Set as Default and Test Passed !!!");
 	}
 
-	// @Test(priority = 3)
+	// @Test(priority = 3, groups = { "smoke" })
 	public void verifyBarcodeCanDelete() throws InterruptedException {
 		LoginPage loginPage = new LoginPage(webDriver);
 		loginPage.login("admin", "123456");

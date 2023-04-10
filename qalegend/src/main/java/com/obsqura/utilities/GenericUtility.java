@@ -10,6 +10,8 @@ import java.util.Properties;
 import java.util.Random;
 import java.util.TimeZone;
 
+import org.openqa.selenium.WebElement;
+
 import com.obsqura.constants.Constants;
 
 // method to return timestamp in java.  whatever you need you can create utility here.
@@ -46,5 +48,13 @@ public class GenericUtility {
 		prop.load(ip);
 		String url = prop.getProperty("url");
 		return url;
+	}
+
+	public static void clickOnElement(WebElement element) {
+		element.click();
+	}
+
+	public static void sendValues(WebElement element, String key) {
+		element.sendKeys(key);
 	}
 }

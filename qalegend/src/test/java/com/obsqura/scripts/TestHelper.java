@@ -28,7 +28,7 @@ public class TestHelper {
 	WebDriver webDriver;
 	GenericUtility gu = new GenericUtility();
 
-	@BeforeMethod
+	@BeforeMethod(alwaysRun = true)
 	@Parameters("browser")
 
 	public void openBrowser(String browsers) throws IOException {
@@ -64,7 +64,7 @@ public class TestHelper {
 
 	}
 
-	@AfterMethod
+	@AfterMethod(alwaysRun = true)
 	public void closeBrowser(ITestResult result) throws IOException {
 
 		if (ITestResult.FAILURE == result.getStatus()) {

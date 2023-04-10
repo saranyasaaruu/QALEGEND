@@ -64,7 +64,7 @@ public class SellingPriceTest extends TestHelper {
 		System.out.println("Selling Group Deleted Successfully and Test Passed !!!");
 	}
 
-	//@Test(priority = 2)
+	// @Test(priority = 2)
 	public void verifySellingGroupCanEdit() throws InterruptedException {
 		LoginPage loginPage = new LoginPage(webDriver);
 		loginPage.login("admin", "123456");

@@ -8,6 +8,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.obsqura.constants.Constants;
+import com.obsqura.utilities.GenericUtility;
 import com.obsqura.utilities.PageUtility;
 import com.obsqura.utilities.ScrollUtility;
 import com.obsqura.utilities.WaitUtility;
@@ -66,21 +67,21 @@ public class BarcodePage {
 	}
 
 	public void settingsTextClick() throws InterruptedException {
-		settingsText.click();
+		GenericUtility.clickOnElement(settingsText);
 	}
 
 	public void barcodeSettingsTextClick() throws InterruptedException {
-
-		barcodeSettingsText.click();
+		GenericUtility.clickOnElement(barcodeSettingsText);
 	}
 
 	public void addBarcodeClick() {
-		addBarcode.click();
+		GenericUtility.clickOnElement(addBarcode);
 	}
 
 	public BarcodePage setDetaultBarCode(String name) {
-		searchBox.sendKeys(name);
-		setButton.click();
+
+		GenericUtility.sendValues(searchBox, name);
+		GenericUtility.clickOnElement(setButton);
 		return new BarcodePage(driver);
 	}
 
@@ -90,27 +91,28 @@ public class BarcodePage {
 	}
 
 	public BarcodePage deleteBarcode(String name) throws InterruptedException {
-		searchBox.sendKeys(name);
-		Thread.sleep(3000);
-		deleteButton.click();
-		Thread.sleep(3000);
-		okButton.click();
-		Thread.sleep(3000);
+		GenericUtility.sendValues(searchBox, name);
+		WaitUtility.sleeps(3000);
+		GenericUtility.clickOnElement(deleteButton);
+		WaitUtility.sleeps(3000);
+		GenericUtility.clickOnElement(okButton);
+		WaitUtility.sleeps(3000);
 		return new BarcodePage(driver);
 		// return isToastMessageLoaded().equals("Barcode setting deleted successfully");
 	}
 
 	public BarcodePage addBarcode(String n) {
-		name.sendKeys(n);
-		width.sendKeys("" + 1);
-		paperWidth.sendKeys("" + 1);
-		stickerInOneRow.sendKeys("" + 1);
-		height.sendKeys("" + 1);
-		paperHeight.sendKeys("" + 1);
-		stickersinOneSheet.sendKeys("" + 1);
-		WaitUtility.sleeps(3000);
-		saveButton.click();
+
+		GenericUtility.sendValues(name, n);
+		GenericUtility.sendValues(width, "1");
+		GenericUtility.sendValues(paperWidth, "1");
+		GenericUtility.sendValues(stickerInOneRow, "1");
+		GenericUtility.sendValues(height, "1");
+		GenericUtility.sendValues(paperHeight, "1");
+		GenericUtility.sendValues(stickersinOneSheet, "1");
+		GenericUtility.clickOnElement(saveButton);
 		return new BarcodePage(driver);
+
 	}
 
 }

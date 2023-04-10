@@ -32,7 +32,7 @@ public class PageUtility {
 
 	public void dragNDrop(WebElement element1, WebElement element2) {
 		WaitUtility wu = new WaitUtility();
-		wu.implicicteWait();
+		wu.impliciteWait(10000);
 		Actions builder = new Actions(driver);
 		WebElement from = element1;
 		WebElement to = element2;

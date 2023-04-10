@@ -8,7 +8,9 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.obsqura.constants.Constants;
+import com.obsqura.utilities.GenericUtility;
 import com.obsqura.utilities.PageUtility;
+import com.obsqura.utilities.WaitUtility;
 
 public class CustomerGroup {
 	WebDriver driver;
@@ -58,27 +60,20 @@ public class CustomerGroup {
 
 	}
 
-	/*
-	 * public String setCustometrGroupName(String cname) { this.cname = cname;
-	 * return cname;
-	 * 
-	 * }
-	 */
-
 	public void contactsTextClick() {
-		contactsText.click();
+		GenericUtility.clickOnElement(contactsText);
 	}
 
 	public void customerGroupsTextClick() {
-		customerGroupsText.click();
+		GenericUtility.clickOnElement(customerGroupsText);
 	}
 
 	public void addTextClick() {
-		addText.click();
+		GenericUtility.clickOnElement(addText);
 	}
 
 	public void actionButtonClick() {
-		actionButton.click();
+		GenericUtility.clickOnElement(actionButton);
 	}
 
 	public String isToastMessageLoaded() {
@@ -87,22 +82,22 @@ public class CustomerGroup {
 	}
 
 	public boolean addCustomerGroup(String na, String percentage) {
-		name.sendKeys(na);
-		amount.sendKeys(percentage);
-		saveButton.click();
+		GenericUtility.sendValues(name, na);
+		GenericUtility.sendValues(amount, percentage);
+		GenericUtility.clickOnElement(saveButton);
 		return isToastMessageLoaded().equals("Success");
 	}
 
 	public void exporttoCSVclick() {
-		exporttoCSV.click();
+		GenericUtility.clickOnElement(exporttoCSV);
 	}
 
 	public void exporttoExcelclick() {
-		exporttoExcel.click();
+		GenericUtility.clickOnElement(exporttoExcel);
 	}
 
 	public void exporttoPDFclick() {
-		exporttoPDF.click();
+		GenericUtility.clickOnElement(exporttoPDF);
 	}
 
 	public boolean fileDownloads(String extendions) throws InterruptedException {
@@ -115,25 +110,25 @@ public class CustomerGroup {
 	}
 
 	public boolean deleteCustomerGroup(String n, String percentage) throws InterruptedException {
-		name.sendKeys(n);
-		amount.sendKeys(percentage);
-		saveButton.click();
-		Thread.sleep(5000);
-		searchBox.sendKeys(n);
-		deleteButton.click();
-		Thread.sleep(5000);
-		okButton.click();
+		GenericUtility.sendValues(name, n);
+		GenericUtility.sendValues(amount, percentage);
+		GenericUtility.clickOnElement(saveButton);
+		WaitUtility.sleeps(5000);
+		GenericUtility.sendValues(searchBox, n);
+		GenericUtility.clickOnElement(deleteButton);
+		WaitUtility.sleeps(5000);
+		GenericUtility.clickOnElement(okButton);
 		return isToastMessageLoaded().equals("Success");
 	}
 
 	public boolean editCustomerGroup(String n, String percentage) {
-		searchBox.sendKeys(n);
-		editButton.click();
+		GenericUtility.sendValues(searchBox, n);
+		GenericUtility.clickOnElement(editButton);
 		name.clear();
 		amount.clear();
-		name.sendKeys(n + "123");
-		amount.sendKeys(percentage);
-		updateButton.click();
+		GenericUtility.sendValues(name, n + "123");
+		GenericUtility.sendValues(amount, percentage);
+		GenericUtility.clickOnElement(updateButton);
 		return isToastMessageLoaded().equals("Success");
 	}
 }

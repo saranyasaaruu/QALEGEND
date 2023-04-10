@@ -4,11 +4,13 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class WaitUtility {
@@ -17,7 +19,7 @@ public class WaitUtility {
 	private static JavascriptExecutor jsExec;
 	WebDriver driver;
 
-	public static  void sleeps(long millis) {
+	public static void sleeps(long millis) {
 		try {
 			Thread.sleep(millis);
 		} catch (InterruptedException e) {
@@ -26,12 +28,12 @@ public class WaitUtility {
 		}
 	}
 
-	public void implicicteWait() {
-		driver.manage().timeouts().implicitlyWait(10000, TimeUnit.MILLISECONDS);
+	public void impliciteWait(long timeinmilliseconds) {
+		driver.manage().timeouts().implicitlyWait(timeinmilliseconds, TimeUnit.MILLISECONDS);
 	}
 
 	public void waitForanElement(WebElement element) {
-		System.out.println("waiting =================================");
+		System.out.println("waiting");
 		WebDriverWait wait = new WebDriverWait(driver, 20);
 		wait.until(ExpectedConditions.presenceOfElementLocated((By) element));
 	}
@@ -42,12 +44,22 @@ public class WaitUtility {
 	}
 
 	public boolean waitforElementtoLoad(WebElement element) {
-		System.out.println("waiting =================================");
+		System.out.println("waiting");
 		System.out.println(element.getText());
 		WebDriverWait wait = new WebDriverWait(driver, 5);
 		wait.until(ExpectedConditions.visibilityOfElementLocated((By) element));
 		return true;
 
+	}
+
+	public static void fluentWait(long totaltimeinseconds, long pollingtimeinseconds, WebElement element,
+			WebDriver driver) {
+		System.out.println("inside fluent wait ....................................");
+		FluentWait wait = new FluentWait(driver);
+		wait.withTimeout(totaltimeinseconds, TimeUnit.MILLISECONDS);
+		wait.pollingEvery(pollingtimeinseconds, TimeUnit.MILLISECONDS);
+		wait.ignoring(NoSuchElementException.class);
+		wait.until(ExpectedConditions.elementToBeClickable(element));
 	}
 
 	private void waitForJQueryLoad() {

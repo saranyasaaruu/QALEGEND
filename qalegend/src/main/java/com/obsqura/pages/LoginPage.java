@@ -5,6 +5,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import com.obsqura.utilities.GenericUtility;
+import com.obsqura.utilities.WaitUtility;
+
 public class LoginPage {
 	public String invalidLogText;
 	WebDriver driver;
@@ -25,9 +28,10 @@ public class LoginPage {
 	}
 
 	public HomePage login(String user, String pass) {
-		username.sendKeys(user);
-		password.sendKeys(pass);
-		button.click();
+		GenericUtility.sendValues(username, user);
+		GenericUtility.sendValues(password, pass);
+		WaitUtility.fluentWait(10000, 2000, button, driver);
+		GenericUtility.clickOnElement(button);
 		return new HomePage(driver);
 	}
 

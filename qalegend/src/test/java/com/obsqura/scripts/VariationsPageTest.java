@@ -1,22 +1,26 @@
 package com.obsqura.scripts;
 
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import com.obsqura.constants.Constants;
 import com.obsqura.pages.CommisionPage;
 import com.obsqura.pages.HomePage;
 import com.obsqura.pages.LoginPage;
 import com.obsqura.pages.VariationsPage;
+import com.obsqura.utilities.ExcelUtilities;
 import com.obsqura.utilities.RandomUtility;
 import com.obsqura.utilities.WaitUtility;
 
 public class VariationsPageTest extends TestHelper {
 	String variations = "Var" + RandomUtility.randomNumberGeneration();
 
-	@Test
-	public void verifyVariationsCanAdd() {
+	// @Test(dataProvider = "ValidCredentials")
+	public void verifyVariationsCanAdd(String usrnme, String paswd) {
 		LoginPage loginPage = new LoginPage(webDriver);
-		loginPage.login("admin", "123456");
+		loginPage.login(usrnme, paswd);
+		System.out.println("From Data provider:" + usrnme + paswd);
 		HomePage homepage = new HomePage(webDriver);
 		homepage.clickEndTour();
 		VariationsPage vp = new VariationsPage(webDriver);
@@ -64,6 +68,16 @@ public class VariationsPageTest extends TestHelper {
 		boolean val = vp.fileDownloads("pdf");
 		Assert.assertEquals(val, true);
 		System.out.println("PDF file Exported and Test Passed!!!");
+
+	}
+
+	@DataProvider(name = "ValidCredentials")
+	public Object[][] getValidData() {
+
+		Object[][] data = new Object[1][2];
+		data[0][0] = "admin";
+		data[0][1] = "123456";
+		return data;
 
 	}
 

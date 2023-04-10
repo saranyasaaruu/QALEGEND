@@ -100,6 +100,7 @@ public class UserManagePage {
 	}
 
 	public boolean isUserFound(String email) {
+		WaitUtility.sleeps(3000);
 		searchBox.sendKeys(email);
 		List<WebElement> rows_table = tableLocator.findElements(By.tagName("tr"));
 		int rows_count = rows_table.size();
@@ -116,6 +117,7 @@ public class UserManagePage {
 				String celtext = Columns_row.get(column).getText();
 				if (celtext.equals(email)) {
 					for (WebElement webElement : rows_table) {
+						System.out.println("Inside table ");
 						if (webElement.getText().contains(celtext)) {
 							String rowValue = webElement.getText();
 							// System.out.println(rowValue);

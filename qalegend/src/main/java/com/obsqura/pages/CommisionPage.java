@@ -8,6 +8,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.obsqura.constants.Constants;
+import com.obsqura.utilities.GenericUtility;
 import com.obsqura.utilities.PageUtility;
 
 public class CommisionPage {
@@ -41,16 +42,16 @@ public class CommisionPage {
 	}
 
 	public void userManagementTextClick() {
-		userManagementText.click();
+		GenericUtility.clickOnElement(userManagementText);
 	}
 
 	public void salesCommissionTextClick() {
-		salesCommissionText.click();
+		GenericUtility.clickOnElement(salesCommissionText);
 	}
 
 	public boolean deleteCommisionAgent() {
-		deleteButton.click();
-		okButton.click();
+		GenericUtility.clickOnElement(deleteButton);
+		GenericUtility.clickOnElement(okButton);
 		return isToastMessageLoaded().equals("Commission agent deleted successfully");
 	}
 
@@ -60,19 +61,19 @@ public class CommisionPage {
 	}
 
 	public void actionButtonClick() {
-		actionButton.click();
+		GenericUtility.clickOnElement(actionButton);
 	}
 
 	public void exporttoCSVclick() {
-		exporttoCSV.click();
+		GenericUtility.clickOnElement(exporttoCSV);
 	}
 
 	public void exporttoExcelclick() {
-		exporttoExcel.click();
+		GenericUtility.clickOnElement(exporttoExcel);
 	}
 
 	public void exporttoPDFclick() {
-		exporttoPDF.click();
+		GenericUtility.clickOnElement(exporttoPDF);
 	}
 
 	public boolean fileDownloads(String extendions) {

@@ -11,7 +11,7 @@ import com.obsqura.utilities.WaitUtility;
 
 public class CommisionPageTest extends TestHelper {
 
-	// @Test
+	@Test
 	public void verifyCommisionAgentCanBeDelete() {
 		// WaitUtility wu = new WaitUtility();
 		LoginPage loginPage = new LoginPage(webDriver);
@@ -25,7 +25,7 @@ public class CommisionPageTest extends TestHelper {
 		System.out.println("Commision Agent Deleted Successfully and Test Passed !!!");
 	}
 
-//	@Test
+	@Test
 	public void verifyCommisionAgentsCanBeExportedtoACSVFile() {
 
 		LoginPage loginPage = new LoginPage(webDriver);
@@ -43,7 +43,7 @@ public class CommisionPageTest extends TestHelper {
 
 	}
 
-	// @Test
+	@Test
 	public void verifyCommisionAgentsCanBeExportedtoAnExcelFile() {
 		LoginPage loginPage = new LoginPage(webDriver);
 		loginPage.login("admin", "123456");
@@ -60,7 +60,7 @@ public class CommisionPageTest extends TestHelper {
 
 	}
 
-	// @Test
+	@Test
 	public void verifyCommisionAgentsCanBeExportedtoAPdflFile() {
 		LoginPage loginPage = new LoginPage(webDriver);
 		loginPage.login("admin", "123456");

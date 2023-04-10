@@ -12,7 +12,7 @@ import com.obsqura.utilities.WaitUtility;
 public class PrinterPageTest extends TestHelper {
 	String printer = "Printer" + RandomUtility.randomNumberGeneration();
 
-	// @Test
+//	@Test
 	public void verifyPrinterCanBeAdd() {
 		LoginPage loginPage = new LoginPage(webDriver);
 		loginPage.login("admin", "123456");
